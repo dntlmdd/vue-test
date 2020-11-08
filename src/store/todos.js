@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export default {
   namespaced: true,
   state: {
@@ -7,7 +5,7 @@ export default {
   },
   actions: {
     async FETCH_TODOS({ commit }, userId) {
-      const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos', { params: { userId } });
+      const { data } = await this.$http.get('todos', { params: { userId } });
 
       commit('SET_TODOS', data);
     },

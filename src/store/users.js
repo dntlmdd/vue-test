@@ -1,7 +1,5 @@
 // import axios from 'axios';
 
-import axios from 'axios';
-
 export default {
   namespaced: true,
   state: {
@@ -10,7 +8,7 @@ export default {
   },
   actions: {
     async FETCH_USERS({ commit }, params) {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users', { params });
+      const response = await this.$http.get('users', { params });
 
       commit('SET_USERS', {
         total: Number(response.headers['x-total-count']),
